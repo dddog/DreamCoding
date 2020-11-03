@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class HabitAddForm extends Component {
   inputRef = React.createRef();
   onSubmit = (event) => {
+    console.log("onSubmit!!");
     event.prevenDefault();
     console.log(this.inputRef);
   };
