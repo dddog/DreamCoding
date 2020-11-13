@@ -4,7 +4,7 @@ class HabitAddForm extends Component {
   inputRef = React.createRef();
   onSubmit = (event) => {
     console.log("onSubmit!!");
-    event.prevenDefault();
+    event.preventDefault();
     console.log(this.inputRef);
   };
   render() {
