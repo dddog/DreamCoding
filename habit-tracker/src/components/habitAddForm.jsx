@@ -1,25 +1,28 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 
-class HabitAddForm extends Component {
-  inputRef = React.createRef();
-  onSubmit = (event) => {
-    console.log("onSubmit!!");
+const HabitAddForm = memo((props) => {
+  const formRef = React.createRef();
+  const inputRef = React.createRef();
+
+  const onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.inputRef);
+    const name = inputRef.current.value;
+    name && props.onAdd(name);
+    // this.inputRef.current.value = "";
+    formRef.current.reset();
   };
-  render() {
-    return (
-      <form className="add-form" onSubmit={this.onSubmit}>
-        <input
-          ref={this.inputRef}
-          type="text"
-          className="add-input"
-          placeholder="Habbit"
-        />
-        <button className="add-button">Add</button>
-      </form>
-    );
-  }
-}
+
+  return (
+    <form ref={formRef} className="add-form" onSubmit={onSubmit}>
+      <input
+        ref={inputRef}
+        type="text"
+        className="add-input"
+        placeholder="Habbit"
+      />
+      <button className="add-button">Add</button>
+    </form>
+  );
+});
 
 export default HabitAddForm;
