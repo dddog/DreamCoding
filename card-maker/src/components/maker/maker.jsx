@@ -38,7 +38,7 @@ const Maker = ({ FileInput, authService }) => {
       title: "S/W Engineer",
       email: "azskw1101@naver.com",
       message: "go for it",
-      fileName: "shin",
+      fileName: null,
       fileURL: null,
     },
   });
